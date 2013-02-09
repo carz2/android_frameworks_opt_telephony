@@ -193,14 +193,14 @@ public class CdmaServiceStateTracker extends ServiceStateTracker {
         cm.registerForCdmaOtaProvision(this,EVENT_OTA_PROVISION_STATUS_CHANGE, null);
 
         // System setting property AIRPLANE_MODE_ON is set in Settings.
-        int airplaneMode = Settings.System.getInt(cr, Settings.Global.AIRPLANE_MODE_ON, 0);
+        int airplaneMode = Settings.Global.getInt(cr, Settings.Global.AIRPLANE_MODE_ON, 0);
         mDesiredPowerState = ! (airplaneMode > 0);
 
         cr.registerContentObserver(
-                Settings.System.getUriFor(Settings.Global.AUTO_TIME), true,
+                Settings.Global.getUriFor(Settings.Global.AUTO_TIME), true,
                 mAutoTimeObserver);
         cr.registerContentObserver(
-            Settings.System.getUriFor(Settings.Global.AUTO_TIME_ZONE), true,
+            Settings.Global.getUriFor(Settings.Global.AUTO_TIME_ZONE), true,
             mAutoTimeZoneObserver);
         setSignalStrengthDefaultValues();
     }

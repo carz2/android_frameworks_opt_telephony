@@ -222,10 +222,10 @@ final class GsmServiceStateTracker extends ServiceStateTracker {
 
         cr = phone.getContext().getContentResolver();
         cr.registerContentObserver(
-                Settings.System.getUriFor(Settings.Global.AUTO_TIME), true,
+                Settings.Global.getUriFor(Settings.Global.AUTO_TIME), true,
                 mAutoTimeObserver);
         cr.registerContentObserver(
-                Settings.System.getUriFor(Settings.Global.AUTO_TIME_ZONE), true,
+                Settings.Global.getUriFor(Settings.Global.AUTO_TIME_ZONE), true,
                 mAutoTimeZoneObserver);
 
         setSignalStrengthDefaultValues();
